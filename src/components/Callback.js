@@ -8,6 +8,8 @@ const Callback = () => {
     const handleCallback = async () => {
       const params = new URLSearchParams(window.location.search);
       console.log(params);
+      const currentUrl = window.location.href;
+      console.log("Current URL:", currentUrl);
       const oauthVerifier = params.get('oauth_verifier');
 
       try {
