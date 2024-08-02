@@ -7,6 +7,7 @@ const Callback = () => {
   useEffect(() => {
     const handleCallback = async () => {
       const params = new URLSearchParams(window.location.search);
+      console.log(params);
       const oauthVerifier = params.get('oauth_verifier');
 
       try {
