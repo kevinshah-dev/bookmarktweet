@@ -17,6 +17,7 @@ const Home = () => {
     });
 
     const data = await response.json();
+    console.log(data);
     if (data.redirect_url) {
       setRedirectUrl(data.redirect_url);
       window.location.href = data.redirect_url;
