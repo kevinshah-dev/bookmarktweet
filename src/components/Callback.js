@@ -8,12 +8,19 @@ const Callback = () => {
     const handleCallback = async () => {
       const params = new URLSearchParams(window.location.search);
       console.log(params);
-      const currentUrl = window.location.href;
-      console.log("Current URL:", currentUrl);
-      const oauthVerifier = params.get('oauth_verifier');
+      const authorization_url = window.location.href;
+      console.log("Current URL:", authorization_url);
 
       try {
-        const response = await fetch(`https://flaskbookmarktweet-production.up.railway.app/twitter_callback?oauth_verifier=${oauthVerifier}`);
+        const response = await fetch("https://flaskbookmarktweet-production.up.railway.app/twitter_callback", 
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ authorization_url }),
+          }
+        );
         const data = await response.json();
 
         if (data.error) {
