@@ -8,7 +8,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:5000/submit', {
+    const response = await fetch('https://flaskbookmarktweet-production.up.railway.app/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
